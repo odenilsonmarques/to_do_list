@@ -73,9 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Nesse caso a funcao addEventListener "escuta" do evento clik no elemento taskTextSpan
         // O método classList.toggle("completed") adiciona a classe "completed" ao elemento se ela não estiver presente e a remove se ela já estiver presente.
         // essa ação ocorre quando ha um click acionando a função anônima 
-        taskTextSpan.addEventListener("click", function () {
-            taskItem.classList.toggle("completed");
-        });
+
+        // taskTextSpan.addEventListener("click", function () {
+        //     taskItem.classList.toggle("completed");
+        // });
 
         // Evento para remover a tarefa
         deleteButton.addEventListener("click", function () {
@@ -84,7 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Evento para altarar o texto do status da tarefa
         statusTarefa.addEventListener("click", function(){
-            statusTarefa.textContent = ("feito");
+            statusTarefa.textContent = "Feito";
+            statusTarefa.classList.add("completed");
         })
 
 
