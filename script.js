@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (taskText === "") return;
 
 
-        // aqui estamos adicionando um elemento <li> e atribuindo a ele uma classe (task-text)
+        // aqui estamos adicionando um elemento <li> e atribuindo a ele uma classe (task-item)
         const taskItem = document.createElement("li");
         taskItem.classList.add("task-item");
 
@@ -48,11 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteButton.classList.add("delete-button");
 
 
+        const statusTarefa = document.createElement("button");
+        statusTarefa.textContent = "Pendente";
+        statusTarefa.classList.add("status-tarefa");
+
+
+
         // appendChild é um metodo para adicionar um elemento filho a outro elemento no DOM
         // Nesse caso o taskTextSpan(elemento filho) é adicionado ao elemento taskItem(elemento pai) assim segue para os outros elemento filho que precisam ser adicinoado na lista
 
         taskItem.appendChild(taskTextSpan);
+        taskItem.appendChild(statusTarefa);
         taskItem.appendChild(deleteButton);
+        
 
         // nesse caso estamos adicinando os itens do elemento <li> dentro da <ul>
         taskList.appendChild(taskItem);
@@ -73,13 +81,18 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteButton.addEventListener("click", function () {
             taskList.removeChild(taskItem);
         });
+
+        // Evento para altarar o texto do status da tarefa
+        statusTarefa.addEventListener("click", function(){
+            statusTarefa.textContent = ("feito");
+        })
+
+
     }
 
 
     // adicionando tarefa a lista
     // nesse caso fica fora da função pq só precisam ser configurada uma vez.Aguardando um clique ou o a tecla enter ser pressionada 
     addTaskButton.addEventListener("click", addTask);
-
-
 
 });
