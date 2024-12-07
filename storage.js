@@ -12,18 +12,12 @@ function saveTasksToLocalStorage() {
 
 // Função para carregar tarefas do Local Storage
 function loadTasksFromLocalStorage() {
-
-    //  Lemos as tarefas do Local Storage usando localStorage.getItem("tasks") e convertendo-as de volta para um array com JSON.parse. 
-    // Se o Local Storage estiver vazio, retornamos um array vazio
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     const taskList = document.getElementById("taskList");
 
-    // Para evitar duplicação  das tarefas ao carregar pagina
+    // Certifica-se de não duplicar as tarefas ao carregar
     taskList.innerHTML = "";
 
-    // Para cada tarefa salva:
-    // Criamos os elementos HTML <li>, <span> e <button> para reconstruir a tarefa.
-    // O status (Feito ou Pendente) é restaurado com base na propriedade isCompleted.
     savedTasks.forEach((task) => {
         const taskItem = document.createElement("li");
         taskItem.classList.add("task-item");
